@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCaptcha", "NoCaptcha\NoCaptcha.csproj", "{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApplication", "ExampleApplication\ExampleApplication.csproj", "{AFADEB80-E328-4779-89EC-7B5F4C02AF8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFADEB80-E328-4779-89EC-7B5F4C02AF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFADEB80-E328-4779-89EC-7B5F4C02AF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFADEB80-E328-4779-89EC-7B5F4C02AF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFADEB80-E328-4779-89EC-7B5F4C02AF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
