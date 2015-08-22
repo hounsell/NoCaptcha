@@ -25,7 +25,7 @@
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-5 col-sm-offset-2">
-                        <nc:NoCaptchaControl runat="server" SiteKey="6Ld5aQsTAAAAAKdsNZ0GfSGqm71cJs4VkaCPFbxU" SecretKey="6Ld5aQsTAAAAADrl9-25nDCNHTOxbCIGWaGjm04M" />
+                        <nc:NoCaptchaControl runat="server" SiteKey="6Ld5aQsTAAAAAKdsNZ0GfSGqm71cJs4VkaCPFbxU" SecretKey="6Ld5aQsTAAAAADrl9-25nDCNHTOxbCIGWaGjm04M" Theme="Dark" Type="Audio" Size="Compact" />
                     </div>
                 </div>
                 <div class="form-group">

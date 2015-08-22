@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="NoCaptcha.cs" />
     <Compile Include="NoCaptchaControl.cs" />
+    <Compile Include="NoCaptchaOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

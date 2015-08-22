@@ -7,26 +7,40 @@ using System.Web.UI.WebControls;
 
 namespace NoCaptcha
 {
-    [ToolboxData("<{0}:NoCaptchaControl runat=server />")]
+    [ToolboxData("<{0}:NoCaptchaControl runat=server></{0}:NoCaptchaControl>")]
     public class NoCaptchaControl : WebControl, IValidator
     {
-        [Bindable(true)]
+        public NoCaptchaTheme Theme { get; set; }
+
+        public NoCaptchaType Type { get; set; }
+
+        public NoCaptchaSize Size { get; set; }
+
+        public bool UseSecureToken { get; set; }
+
+        public string ErrorCssClass { get; set; }
+
+        public string ErrorMessage { get; set; }
+
         [Category("Keys")]
         [Description("This is your site / public key for Google NoCAPTCHA")]
         public string SiteKey { get; set; }
 
-        [Bindable(true)]
         [Category("Keys")]
         [Description("This is your site / public key for Google NoCAPTCHA")]
         public string SecretKey { get; set; }
 
         public bool IsValid { get; set; }
 
-        public string ErrorMessage { get; set; }
-
         public NoCaptchaControl()
             : base(HtmlTextWriterTag.Div)
         {
+            Theme = NoCaptchaTheme.Light;
+            Type = NoCaptchaType.Image;
+            Size = NoCaptchaSize.Normal;
+            UseSecureToken = true;
+            ErrorCssClass = "text-danger";
+            ErrorMessage = "Please tick the \"I'm not a robot\" checkbox";
         }
 
         protected override void OnInit(EventArgs e)
@@ -45,7 +59,6 @@ namespace NoCaptcha
             string clientResponse = GetClientResponse();
             if (string.IsNullOrEmpty(clientResponse))
             {
-                ErrorMessage = "Please tick the \"I'm not a robot\" checkbox";
                 IsValid = false;
                 return;
             }
@@ -94,14 +107,30 @@ namespace NoCaptcha
                 new NoCaptcha() :
                 new NoCaptcha(SiteKey, SecretKey);
 
-            output.Write(nc.GetSecureHtml());
+            output.AddAttribute(HtmlTextWriterAttribute.Class, "g-recaptcha");
+            output.AddAttribute("data-sitekey", nc.SiteKey);
+            if(UseSecureToken)
+            {
+                output.AddAttribute("data-stoken", nc.SecureToken);
+            }
+            output.AddAttribute("data-theme", Theme.ToString().ToLower());
+            output.AddAttribute("data-type", Type.ToString().ToLower());
+            output.AddAttribute("data-size", Size.ToString().ToLower());
+
+            output.RenderBeginTag(HtmlTextWriterTag.Div);
+            output.RenderEndTag();
 
             if (!IsValid)
             {
-                output.Write($"<div class=\"text-danger\">{ErrorMessage}</div>");
+                output.AddAttribute(HtmlTextWriterAttribute.Class, ErrorCssClass);
+                output.RenderBeginTag(HtmlTextWriterTag.Div);
+                output.WriteEncodedText(ErrorMessage);
+                output.RenderEndTag();
             }
 
-            output.Write("<script src=\"https://www.google.com/recaptcha/api.js\"></script>");
+            output.AddAttribute(HtmlTextWriterAttribute.Src, "https://www.google.com/recaptcha/api.js");
+            output.RenderBeginTag(HtmlTextWriterTag.Script);
+            output.RenderEndTag();
         }
 
         private string GetClientResponse()

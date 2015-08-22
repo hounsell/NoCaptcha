@@ -15,6 +15,11 @@ namespace NoCaptcha
         public string SecretKey { get; set; }
         public Guid SessionKey { get; set; }
 
+        public string SecureToken
+        {
+            get { return EncryptToken(GetToken()); }
+        }
+
         private static readonly DateTime EpochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public NoCaptcha()
@@ -33,19 +38,6 @@ namespace NoCaptcha
             // Override with provided values
             SiteKey = siteKey;
             SecretKey = secretKey;
-        }
-
-        public string GetSecureHtml()
-        {
-            string secureToken = GetToken();
-            secureToken = EncryptToken(secureToken);
-
-            return $"<div class=\"g-recaptcha\" data-sitekey=\"{SiteKey}\" data-stoken=\"{secureToken}\"></div>";
-        }
-
-        public string GetHtml()
-        {
-            return $"<div class=\"g-recaptcha\" data-sitekey=\"{SiteKey}\"></div>";
         }
 
         public NoCaptchaResult Validate(string response, string ip)
