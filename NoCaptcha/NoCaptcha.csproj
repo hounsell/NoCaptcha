@@ -7,8 +7,8 @@
     <ProjectGuid>{18F6F8FD-B272-4FE7-B5AD-32ED69340AED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NoCaptcha</RootNamespace>
-    <AssemblyName>NoCaptcha</AssemblyName>
+    <RootNamespace>Gnome.NoCaptcha</RootNamespace>
+    <AssemblyName>Gnome.NoCaptcha</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

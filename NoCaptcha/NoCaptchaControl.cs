@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace NoCaptcha
+namespace Gnome.NoCaptcha
 {
     [ToolboxData("<{0}:NoCaptchaControl runat=server></{0}:NoCaptchaControl>")]
     public class NoCaptchaControl : WebControl, IValidator
@@ -120,7 +120,7 @@ namespace NoCaptcha
             output.RenderBeginTag(HtmlTextWriterTag.Div);
             output.RenderEndTag();
 
-            if (!IsValid)
+            if (!IsValid && (HttpContext.Current.Handler as Page).IsPostBack)
             {
                 output.AddAttribute(HtmlTextWriterAttribute.Class, ErrorCssClass);
                 output.RenderBeginTag(HtmlTextWriterTag.Div);

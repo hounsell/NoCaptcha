@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NoCaptcha")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Gnome.NoCaptcha")]
+[assembly: AssemblyDescription("A library that provides a control for the Google NoCAPTCHA / ReCAPTCHA v2 service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NoCaptcha")]
+[assembly: AssemblyCompany("Thomas Hounsell")]
+[assembly: AssemblyProduct("Gnome.NoCaptcha")]
 [assembly: AssemblyCopyright("Copyright © 2015, Thomas Hounsell")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

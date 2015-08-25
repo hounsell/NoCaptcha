@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NoCaptcha
+namespace Gnome.NoCaptcha
 {
     public class NoCaptcha
     {
