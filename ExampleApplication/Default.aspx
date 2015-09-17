@@ -22,15 +22,29 @@
     <form id="baseFrm" runat="server">
         <div class="container">
             <h1>Example NoCAPTCHA For ASP.NET</h1>
+           <h3>Default Options</h3>
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-5 col-sm-offset-2">
-                        <nc:NoCaptchaControl runat="server" SiteKey="6Ld5aQsTAAAAAKdsNZ0GfSGqm71cJs4VkaCPFbxU" SecretKey="6Ld5aQsTAAAAADrl9-25nDCNHTOxbCIGWaGjm04M" Theme="Dark" Type="Audio" Size="Compact" />
+                        <nc:NoCaptchaControl runat="server" SiteKey="6Ld5aQsTAAAAAKdsNZ0GfSGqm71cJs4VkaCPFbxU" SecretKey="6Ld5aQsTAAAAADrl9-25nDCNHTOxbCIGWaGjm04M" ValidationGroup="Group1" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-5 col-sm-offset-2">
-                        <asp:Button ID="testButton" runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="testButton_Click" />
+                        <asp:Button ID="testButton" runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="testButton_Click" ValidationGroup="Group1" />
+                    </div>
+                </div>
+            </div>
+           <h3>Custom Options</h3>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <nc:NoCaptchaControl runat="server" SiteKey="6Ld5aQsTAAAAAKdsNZ0GfSGqm71cJs4VkaCPFbxU" SecretKey="6Ld5aQsTAAAAADrl9-25nDCNHTOxbCIGWaGjm04M" Theme="Dark" Type="Audio" Size="Compact" ValidationGroup="Group2" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <asp:Button ID="altTestButton" runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="testButton_Click" ValidationGroup="Group2" />
                     </div>
                 </div>
             </div>
