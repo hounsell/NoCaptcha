@@ -12,13 +12,9 @@ namespace Gnome.NoCaptcha
    {
 
       public NoCaptchaTheme Theme { get; set; }
-
       public NoCaptchaType Type { get; set; }
-
       public NoCaptchaSize Size { get; set; }
-
       public bool UseSecureToken { get; set; }
-
       public string ErrorCssClass { get; set; }
 
       [Category("Keys")]
@@ -30,12 +26,11 @@ namespace Gnome.NoCaptcha
       public string SecretKey { get; set; }
 
       public NoCaptchaControl()
-          : base()
       {
          Theme = NoCaptchaTheme.Light;
          Type = NoCaptchaType.Image;
          Size = NoCaptchaSize.Normal;
-         UseSecureToken = true;
+         UseSecureToken = false;
          ErrorCssClass = "text-danger";
          ErrorMessage = "Please tick the \"I'm not a robot\" checkbox";
       }
@@ -69,7 +64,7 @@ namespace Gnome.NoCaptcha
          writer.RenderBeginTag(HtmlTextWriterTag.Div);
          writer.RenderEndTag();
 
-         if (!IsValid && (HttpContext.Current.Handler as Page).IsPostBack)
+         if (!IsValid && ((Page)HttpContext.Current.Handler).IsPostBack)
          {
             writer.AddAttribute(HtmlTextWriterAttribute.Class, ErrorCssClass);
             writer.RenderBeginTag(HtmlTextWriterTag.Div);
